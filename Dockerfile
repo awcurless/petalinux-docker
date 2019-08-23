@@ -76,7 +76,8 @@ RUN chmod +x /home/petalinux/petalinux.run
 USER petalinux
 WORKDIR /home/petalinux
 
-RUN yes | /home/petalinux/petalinux.run /opt/pkg/petalinux > /dev/null || true
+# Answers the license agreement without user input...
+RUN yes | /home/petalinux/petalinux.run /opt/pkg/petalinux > /dev/null
 
 RUN echo 'alias petalinuxenv="source /opt/pkg/petalinux/settings.sh"' >> $HOME/.bashrc
 
